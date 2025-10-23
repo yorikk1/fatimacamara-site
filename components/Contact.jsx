@@ -69,7 +69,7 @@ export default function Contact() {
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           <div className="space-y-6">
             <Card className="p-6 border-2">
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4" netlify>
                 <div>
                   <label htmlFor="name" className="block mb-2">Nome Completo</label>
                   <Input
