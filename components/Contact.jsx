@@ -29,7 +29,7 @@ export default function Contact() {
   };
 
   const openInstagram = () => {
-    const username = "fatimacc_"; // <-- Troque pelo seu usuário
+    const username = "fatimacc_";
     const instagramUrl = `https://www.instagram.com/${username}`;
     window.open(instagramUrl, '_blank');
   };
@@ -69,7 +69,7 @@ export default function Contact() {
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           <div className="space-y-6">
             <Card className="p-6 border-2">
-              <form onSubmit={handleSubmit} className="space-y-4" netlify>
+              <form onSubmit={handleSubmit} className="space-y-4" name="contact" method="POST" data-netlify="true">
                 <div>
                   <label htmlFor="name" className="block mb-2">Nome Completo</label>
                   <Input
@@ -137,7 +137,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="mb-1">Telefone</h4>
-                  <p className="text-sm text-muted-foreground">+351 962 918 148</p>
+                  <p className="text-sm text-muted-foreground line-through">+351 962 918 148</p>
                   <p className="text-xs text-muted-foreground mt-1">Telefone temporariamente indisponível</p>
                 </div>
               </div>

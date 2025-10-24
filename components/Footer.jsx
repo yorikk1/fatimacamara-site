@@ -1,6 +1,18 @@
 import { Heart, Instagram, Facebook, Mail } from "lucide-react";
 
 export default function Footer() {
+  // Esta função será chamada quando o ícone de e-mail for clicado
+  const openEmail = () => {
+    const email = "fatimac.ftc45@gmail.com"; // Seu e-mail
+    const subject = "Agendamento de Sessão de Massoterapia";
+    const bodyMessage = "Olá! Gostaria de agendar uma sessão.";
+    
+    const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyMessage)}`;
+    
+    // Usar window.open() está correto, ou window.location.href = mailtoUrl;
+    window.open(mailtoUrl, '_blank'); 
+  };
+  
   return (
     <footer className="bg-primary text-primary-foreground py-12">
       <div className="container mx-auto px-4">
@@ -33,13 +45,27 @@ export default function Footer() {
               <li>fatimac.ftc45@gmail.com</li>
             </ul>
             <div className="flex gap-4 mt-4">
-              <a href="https://www.instagram.com/fatimacc_" className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center">
+              <a 
+                href="https://www.instagram.com/fatimacc_" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center"
+              >
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center">
+              <a 
+                href="#" 
+                className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center"
+              >
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center">
+              
+              {/* --- LINK DO EMAIL CORRIGIDO --- */}
+              <a 
+                href="#" 
+                onClick={openEmail} 
+                className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center"
+              >
                 <Mail className="w-5 h-5" />
               </a>
             </div>
