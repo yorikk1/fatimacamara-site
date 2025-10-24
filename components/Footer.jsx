@@ -1,15 +1,13 @@
 import { Heart, Instagram, Facebook, Mail } from "lucide-react";
 
 export default function Footer() {
-  // Esta função será chamada quando o ícone de e-mail for clicado
   const openEmail = () => {
-    const email = "fatimac.ftc45@gmail.com"; // Seu e-mail
+    const email = "fatimac.ftc45@gmail.com";
     const subject = "Agendamento de Sessão de Massoterapia";
     const bodyMessage = "Olá! Gostaria de agendar uma sessão.";
     
     const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyMessage)}`;
     
-    // Usar window.open() está correto, ou window.location.href = mailtoUrl;
     window.open(mailtoUrl, '_blank'); 
   };
   
@@ -60,7 +58,6 @@ export default function Footer() {
                 <Facebook className="w-5 h-5" />
               </a>
               
-              {/* --- LINK DO EMAIL CORRIGIDO --- */}
               <a 
                 href="#" 
                 onClick={openEmail} 
