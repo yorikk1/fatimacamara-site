@@ -1,11 +1,23 @@
+"use client";
+
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Card } from "./ui/card";
 import { Phone, Mail, MapPin, Clock, Instagram } from "lucide-react";
-import { useState } from "react";
 
 export default function Contact() {
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    await fetch("/__forms.html", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    });
+    // Success and error handling ...
+  };
+
   const openInstagram = () => {
     const username = "fatimacc_";
     const instagramUrl = `https://www.instagram.com/${username}`;
@@ -47,7 +59,7 @@ export default function Contact() {
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           <div className="space-y-6">
             <Card className="p-6 border-2">
-              <form onSubmit="submit" className="space-y-4" name="contact" method="POST" data-netlify="true">
+              <form onSubmit={handleFormSubmit} className="space-y-4" name="contact">
                 <div>
                   <label htmlFor="name" className="block mb-2">Nome Completo</label>
                   <Input
