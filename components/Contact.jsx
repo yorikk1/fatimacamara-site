@@ -6,28 +6,6 @@ import { Phone, Mail, MapPin, Clock, Instagram } from "lucide-react";
 import { useState } from "react";
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    message: ""
-  });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Aqui você pode adicionar lógica para enviar o formulário
-    console.log("Form submitted:", formData);
-    alert("Mensagem enviada! Entrarei em contato em breve.");
-    setFormData({ name: "", phone: "", email: "", message: "" });
-  };
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
   const openInstagram = () => {
     const username = "fatimacc_";
     const instagramUrl = `https://www.instagram.com/${username}`;
@@ -69,14 +47,12 @@ export default function Contact() {
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           <div className="space-y-6">
             <Card className="p-6 border-2">
-              <form onSubmit={handleSubmit} className="space-y-4" name="contact" netlify>
+              <form onSubmit="submit" className="space-y-4" name="contact" method="POST" data-netlify="true">
                 <div>
                   <label htmlFor="name" className="block mb-2">Nome Completo</label>
                   <Input
                     id="name"
                     name="name"
-                    value={formData.name}
-                    onChange={handleChange}
                     placeholder="Seu nome"
                     required
                   />
@@ -88,8 +64,6 @@ export default function Contact() {
                     id="phone"
                     name="phone"
                     type="tel"
-                    value={formData.phone}
-                    onChange={handleChange}
                     placeholder="(XX) XXXXX-XXXX"
                     required
                   />
@@ -101,8 +75,6 @@ export default function Contact() {
                     id="email"
                     name="email"
                     type="email"
-                    value={formData.email}
-                    onChange={handleChange}
                     placeholder="seu@email.com"
                     required
                   />
@@ -113,8 +85,6 @@ export default function Contact() {
                   <Textarea
                     id="message"
                     name="message"
-                    value={formData.message}
-                    onChange={handleChange}
                     placeholder="Conte-me sobre suas necessidades e preferências..."
                     rows={4}
                     required
