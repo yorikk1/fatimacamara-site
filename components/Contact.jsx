@@ -1,35 +1,22 @@
 "use client";
 
 import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { Textarea } from "./ui/textarea";
 import { Card } from "./ui/card";
 import { Phone, Mail, MapPin, Clock, Instagram } from "lucide-react";
 
 export default function Contact() {
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    await fetch("/__forms.html", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString(),
-    });
-    // Success and error handling ...
-  };
-
   const openInstagram = () => {
-    const username = "fatimacc_";
+    const username = "fatimacc_"; // Seu usuário do Instagram
     const instagramUrl = `https://www.instagram.com/${username}`;
     window.open(instagramUrl, '_blank');
   };
 
   {/* const openWhatsApp = () => {
-    const phoneNumber = "351962918148";
-    const message = "Olá! Gostaria de agendar uma sessão de massoterapia.";
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
-  }; */}
+  const phoneNumber = "351962918148";
+  const message = "Olá! Gostaria de agendar uma sessão de massoterapia.";
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+  window.open(whatsappUrl, '_blank');
+}; */}
 
   return (
     <section id="contato" className="w-full py-16 md:py-24 bg-linear-to-b from-white to-muted/20">
@@ -42,7 +29,9 @@ export default function Contact() {
             Agende sua <span className="text-primary">Sessão</span>
           </h2>
           <p className="text-muted-foreground">
-            Entre em contato para agendar sua sessão ou tirar dúvidas. Atendimento personalizado e no conforto da sua casa.
+            Para um atendimento mais ágil e personalizado, todo o contato, 
+            agendamento e esclarecimento de dúvidas é feito diretamente pelo Instagram. 
+            Clique no botão abaixo para iniciar nossa conversa!
           </p>
           <div className="mt-6">
             <Button 
@@ -55,115 +44,56 @@ export default function Contact() {
             </Button>
           </div>
         </div>
-
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          <div className="space-y-6">
-            <Card className="p-6 border-2">
-              <form onSubmit={handleFormSubmit} className="space-y-4" name="contact">
-                <div>
-                  <label htmlFor="name" className="block mb-2">Nome Completo</label>
-                  <Input
-                    id="name"
-                    name="name"
-                    placeholder="Seu nome"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="phone" className="block mb-2">Telefone</label>
-                  <Input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    placeholder="(XX) XXXXX-XXXX"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="block mb-2">E-mail</label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="seu@email.com"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block mb-2">Mensagem</label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    placeholder="Conte-me sobre suas necessidades e preferências..."
-                    rows={4}
-                    required
-                  />
-                </div>
-
-                <Button type="submit" className="w-full" size="lg">
-                  Enviar Mensagem
-                </Button>
-              </form>
-            </Card>
-          </div>
-
-          <div className="space-y-6">
-
-            <Card className="p-6 border-2 opacity-50 cursor-not-allowed">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                  <Phone className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <h4 className="mb-1">Telefone</h4>
-                  <p className="text-sm text-muted-foreground line-through">+351 962 918 148</p>
-                  <p className="text-xs text-muted-foreground mt-1">Telefone temporariamente indisponível</p>
-                </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <Card className="p-6 border-2 opacity-50 cursor-not-allowed">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                <Phone className="w-6 h-6 text-primary" />
               </div>
-            </Card>
-
-            <Card className="p-6 border-2">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                  <Mail className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <h4 className="mb-1">E-mail</h4>
-                  <p className="text-sm text-muted-foreground">fatimac.ftc45@gmail.com</p>
-                  <p className="text-xs text-muted-foreground mt-1">Resposta em até 24h</p>
-                </div>
+              <div>
+                <h4 className="mb-1">Telefone</h4>
+                <p className="text-sm text-muted-foreground line-through">+351 962 918 148</p>
+                <p className="text-xs text-muted-foreground mt-1">Telefone temporariamente indisponível</p>
               </div>
-            </Card>
-
-            <Card className="p-6 border-2">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                  <MapPin className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <h4 className="mb-1">Área de Atendimento</h4>
-                  <p className="text-sm text-muted-foreground">Atendimento ao domicílio</p>
-                  <p className="text-xs text-muted-foreground mt-1">Consulte disponibilidade para sua região</p>
-                </div>
+            </div>
+          </Card>
+          <Card className="p-6 border-2">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                <Mail className="w-6 h-6 text-primary" />
               </div>
-            </Card>
-
-            <Card className="p-6 border-2">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                  <Clock className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <h4 className="mb-1">Horário de Atendimento</h4>
-                  <p className="text-sm text-muted-foreground">Segunda a Sábado</p>
-                  <p className="text-xs text-muted-foreground mt-1">8h às 20h (agendamento prévio)</p>
-                </div>
+              <div>
+                <h4 className="mb-1">E-mail</h4>
+                <p className="text-sm text-muted-foreground">fatimac.ftc45@gmail.com</p>
+                <p className="text-xs text-muted-foreground mt-1">Resposta em até 24h</p>
               </div>
-            </Card>
-          </div>
+            </div>
+          </Card>
+          <Card className="p-6 border-2">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                <MapPin className="w-6 h-6 text-primary" />
+              </div>
+              <div>
+                <h4 className="mb-1">Área de Atendimento</h4>
+                <p className="text-sm text-muted-foreground">Atendimento ao domicílio</p>
+                <p className="text-xs text-muted-foreground mt-1">Consulte disponibilidade para sua região</p>
+              </div>
+            </div>
+          </Card>
+          <Card className="p-6 border-2">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                <Clock className="w-6 h-6 text-primary" />
+              </div>
+              <div>
+                <h4 className="mb-1">Horário de Atendimento</h4>
+                <p className="text-sm text-muted-foreground">Segunda a Sábado</p>
+                <p className="text-xs text-muted-foreground mt-1">8h às 20h (agendamento prévio)</p>
+              </div>
+            </div>
+          </Card>
+
         </div>
       </div>
     </section>
