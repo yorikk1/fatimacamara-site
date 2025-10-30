@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 import { Sparkles, Dumbbell } from "lucide-react";
 
 const stats = [
-  { value: "10+", label: "Anos de Experiência" },
+  { value: "6+", label: "Anos de Experiência" },
   { value: "500+", label: "Clientes Atendidos" },
   { value: "100%", label: "Personalizado" },
 ];
