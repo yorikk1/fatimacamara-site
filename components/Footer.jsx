@@ -70,9 +70,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 border-t border-white/10 text-center text-sm opacity-80 flex items-center justify-center gap-2">
-          <span>© 2025 Massoterapia. Feito com</span>
-          <Heart className="w-4 h-4 fill-current" />
-          <span>para seu bem-estar.</span>
+          <span>Fátima Camará © {new Date().getFullYear()}. Desenvolvido por Yuri Baggio </span>
         </div>
       </div>
     </footer>

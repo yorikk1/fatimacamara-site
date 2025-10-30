@@ -7,6 +7,7 @@ import Services from '@components/Services'
 import Benefits from '@components/Benefits'
 import Testimonials from '@components/Testimonials'
 import Contact from '@components/Contact'
+import FloatingButton from '@components/FloatingButton'
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
         <Benefits/>
         <Testimonials/>
         <Contact/>
+        <FloatingButton/>
       </main>
       <Footer />
     </div>
