@@ -39,7 +39,7 @@ export default function Footer() {
           <div>
             <h4 className="mb-4">Contacto</h4>
             <ul className="space-y-2 text-sm opacity-80">
-              <li>+351 962 918 148</li>
+              <li>+55 (51) 9 9610-8098</li>
               <li>fatimac.ftc45@gmail.com</li>
             </ul>
             <div className="flex gap-4 mt-4">

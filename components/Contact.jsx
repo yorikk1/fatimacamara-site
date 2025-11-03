@@ -12,7 +12,7 @@ export default function Contact() {
   };
 
   {/* const openWhatsApp = () => {
-  const phoneNumber = "351962918148";
+  const phoneNumber = "5551996108098";
   const message = "Olá! Gostaria de agendar uma sessão de massoterapia.";
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
   window.open(whatsappUrl, '_blank');
@@ -45,15 +45,15 @@ export default function Contact() {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <Card className="p-6 border-2 opacity-50 cursor-not-allowed">
+          <Card className="p-6 border-2">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
                 <Phone className="w-6 h-6 text-primary" />
               </div>
               <div>
                 <h4 className="mb-1">Telefone</h4>
-                <p className="text-sm text-muted-foreground line-through">+351 962 918 148</p>
-                <p className="text-xs text-muted-foreground mt-1">Telefone temporariamente indisponível</p>
+                <p className="text-sm text-muted-foreground">+55 (51) 9 9610-8098</p>
+                <p className="text-xs text-muted-foreground mt-1">WhatsApp temporariamente indisponível</p>
               </div>
             </div>
           </Card>
